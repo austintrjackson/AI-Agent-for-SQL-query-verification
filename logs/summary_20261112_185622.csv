@@ -1,0 +1,4 @@
+question_id,question,final_sql,numerical_answer,matched_ground_truth,status,tool_calls,check_answer_calls,execute_sql_calls,seconds,note
+Q4,How many matches have not yet been played (both scores not recorded)?,SELECT COUNT(*) AS unplayed FROM `Match` WHERE homeGoals IS NULL AND awayGoals IS NULL,1,True,Verified,5,1,3,126.6,
+Q6,How many players have participated in two or more appearances?,SELECT COUNT(*) AS num_players FROM (SELECT playerId FROM Appearance GROUP BY playerId HAVING COUNT(*) >= 2) AS sub,10,True,Verified,6,1,4,38.8,
+Q7,What is the total number of goals scored by Real Madrid across all matches (home plus away)?,"SELECT COALESCE(SUM(CASE WHEN homeTeamId=1 THEN homeGoals END),0) + COALESCE(SUM(CASE WHEN awayTeamId=1 THEN awayGoals END),0) AS total_goals FROM `Match`;",3,True,Verified,11,1,8,51.8,
