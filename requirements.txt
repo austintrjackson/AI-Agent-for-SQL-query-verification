@@ -1,6 +1,0 @@
-langchain>=1.0,<2
-langchain-ollama>=1.0
-langgraph>=1.0
-sqlalchemy>=2.0
-mysql-connector-python>=9.0
-python-dotenv>=1.0
