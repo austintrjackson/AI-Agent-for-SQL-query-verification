@@ -1,7 +1,0 @@
-{"qid": 1, "prompt": "How many teams are in the database?", "gold_sql": "SELECT COUNT(*) FROM Team;", "gold_value": 6}
-{"qid": 2, "prompt": "How many players are currently unattached (teamId is NULL)?", "gold_sql": "SELECT COUNT(*) FROM Player WHERE teamId IS NULL;", "gold_value": 1}
-{"qid": 3, "prompt": "How many matches have been scheduled in total?", "gold_sql": "SELECT COUNT(*) FROM `Match`;", "gold_value": 8}
-{"qid": 4, "prompt": "How many matches have not yet been played (both scores not recorded)?", "gold_sql": "SELECT COUNT(*) FROM `Match` WHERE homeGoals IS NULL AND awayGoals IS NULL;", "gold_value": 1}
-{"qid": 5, "prompt": "How many distinct players have at least one appearance?", "gold_sql": "SELECT COUNT(DISTINCT playerId) FROM Appearance;", "gold_value": 10}
-{"qid": 6, "prompt": "How many players have participated in two or more appearances?", "gold_sql": "SELECT COUNT(*) FROM (SELECT playerId FROM Appearance GROUP BY playerId HAVING COUNT(*) >= 2) AS t;", "gold_value": 10}
-{"qid": 7, "prompt": "What is the total number of goals scored by Real Madrid across all matches (home plus away)?", "gold_sql": "SELECT SUM(CASE WHEN m.homeTeamId = t.teamId THEN m.homeGoals ELSE m.awayGoals END) FROM `Match` m JOIN Team t ON t.teamId IN (m.homeTeamId, m.awayTeamId) WHERE t.name = 'Real Madrid';", "gold_value": 3}
