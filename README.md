@@ -1,4 +1,4 @@
-# SQL Verification Agent (CS 4354, Homework 3 Part 1)
+# SQL Verification Agent (CS 4354, Homework 3)
 
 An AI agent that writes SQL for natural-language questions, runs it against MySQL, and then **investigates on its own whether the SQL is actually right**, not just whether it returned the right number.
 
